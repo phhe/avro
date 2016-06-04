@@ -29,6 +29,9 @@
 #include "Config.hh"
 #include "Stream.hh"
 
+#include <iostream>     // std::cout, std::fixed
+#include <iomanip>      // std::setprecision
+
 namespace avro {
 namespace json {
 
@@ -314,6 +317,7 @@ public:
         sep();
         std::ostringstream oss;
         if (boost::math::isfinite(t)) {
+            oss << std::fixed << std::setprecision(16);
             oss << t;
         } else if (boost::math::isnan(t)) {
             oss << "NaN";
